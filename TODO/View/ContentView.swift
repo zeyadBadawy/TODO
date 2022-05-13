@@ -33,32 +33,37 @@ struct ContentView: View {
     //MARK: BODY
     var body: some View {
         NavigationView {
-            List{
-                ForEach(todos , id: \.self ) { item in
-                    HStack {
-                        Text(item.name ?? "")
-                        Spacer()
-                        Text(item.priority ?? "")
-                    }//: HStack
-                }//: ForEach
-                .onDelete(perform: deleteTodo)
-            }//: List
-            .listStyle(.plain)
-            .sheet(isPresented: $showAddTodoView, content: {
-                AddTodoView()
-            })
-            .navigationBarTitle("Todo" , displayMode: .inline)
-            .navigationBarItems(
-                leading: EditButton() , 
-                trailing: Button(action: {
-                    self.showAddTodoView.toggle()
-                }, label: {
-                    Image(systemName: "plus")
+            ZStack {
+                List{
+                    ForEach(todos , id: \.self ) { item in
+                        HStack {
+                            Text(item.name ?? "")
+                            Spacer()
+                            Text(item.priority ?? "")
+                        }//: HStack
+                    }//: ForEach
+                    .onDelete(perform: deleteTodo)
+                }//: List
+                .listStyle(.plain)
+                .sheet(isPresented: $showAddTodoView, content: {
+                    AddTodoView()
                 })
-            )
+                .navigationBarTitle("Todo" , displayMode: .inline)
+                .navigationBarItems(
+                    leading: EditButton() ,
+                    trailing: Button(action: {
+                        self.showAddTodoView.toggle()
+                    }, label: {
+                        Image(systemName: "plus")
+                    })
+                )
+                if todos.count == 0 {
+                    EmptyListView()
+                }
+            }//: ZStack
         }//: NavigationView
     }
-
+    
 }
 
 private let itemFormatter: DateFormatter = {
@@ -72,7 +77,7 @@ private let itemFormatter: DateFormatter = {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-          return ContentView()
+        return ContentView()
             .environment(\.managedObjectContext, context)
         
     }
