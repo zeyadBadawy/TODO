@@ -11,6 +11,8 @@ import CoreData
 struct ContentView: View {
     //MARK: PROPERTIES
     @State private var showAddTodoView:Bool = false
+    @State private var showSettingsView:Bool = false
+    
     @State private var isAnimating:Bool = false
     @State private var animationAmount: CGFloat = 1
 
@@ -54,12 +56,18 @@ struct ContentView: View {
                 .navigationBarTitle("Todo" , displayMode: .inline)
                 .navigationBarItems(
                     leading: EditButton() ,
-                    trailing: Button(action: {
-                        self.showAddTodoView.toggle()
-                    }, label: {
-                        Image(systemName: "plus")
-                    })
+                    trailing:
+                        HStack {
+                            Button(action: {
+                                self.showSettingsView.toggle()
+                            }, label: {
+                                Image(systemName: "paintbrush")
+                            })
+                        }//: HStack
                 )
+                .sheet(isPresented: $showSettingsView, content: {
+                    SettingsView()
+                })
                 if todos.count == 0 {
                     EmptyListView()
                 }
