@@ -12,6 +12,12 @@ struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var iconSettings:IconNames
     
+    //MARK: Theme
+    var themes:[Theme] = themeData
+    @ObservedObject var theme = ThemeSettings.shared
+
+
+    
     //MARK: BODY
     var body: some View {
         NavigationView {
@@ -61,8 +67,43 @@ struct SettingsView: View {
                         Text("Choose the app icon")
                     }//:SECTION 1
 
+                    //MARK: SECTION 2
                     
+                    Section {
+                        List {
+                            ForEach(themes , id:\.id) { item in
+                                Button {
+                                    self.theme.themeSettings = item.id
+                                    UserDefaults.standard.set(self.theme.themeSettings, forKey: "Theme")
+                                } label: {
+                                    HStack {
+                                        Image(systemName: "circle.fill")
+                                            .foregroundColor(item.themeColor)
+                                        Text(item.themeName)
+                                    }//: HStack
+                                }//: Button
+                                .accentColor(.primary)
+                            }//: ForEach
+                        }//: List
+                    } header: {
+                        HStack {
+                            Text("Choose app theme.")
+                            Image(systemName: "circle.fill")
+                                .resizable()
+                                .frame(width: 10, height: 10, alignment: .center)
+                                .foregroundColor(self.themes[self.theme.themeSettings].themeColor)
+                        }
+                    }//: SECTION 2
+
                     //MARK: SECTION 3
+                    Section {
+                        FormRowLinkView(icon: "globe", color: .pink, text: "LinkedIn", link: "https://www.linkedin.com/in/zeyadbadawy/")
+                        FormRowLinkView(icon: "link", color: .pink, text: "Twitter", link: "https://mobile.twitter.com/zeyadtaher5")
+                    } header: {
+                        Text("Let's Connect")
+                    }//:SECTION 3
+                    
+                    //MARK: SECTION 4
                     Section {
                         FormRowStaticView(icon: "gear", firstText: "Application", secondText: "TODO")
                         FormRowStaticView(icon: "checkmark.seal", firstText: "Compatibility", secondText: "iPhone, iPad")
@@ -71,14 +112,6 @@ struct SettingsView: View {
                         FormRowStaticView(icon: "flag", firstText: "Version", secondText: "1.5.0")
                     } header: {
                         Text("About the application")
-                    }//:SECTION 3
-                    
-                    //MARK: SECTION 4
-                    Section {
-                        FormRowLinkView(icon: "globe", color: .pink, text: "LinkedIn", link: "https://www.linkedin.com/in/zeyadbadawy/")
-                        FormRowLinkView(icon: "link", color: .pink, text: "Twitter", link: "https://mobile.twitter.com/zeyadtaher5")
-                    } header: {
-                        Text("Let's Connect")
                     }//:SECTION 4
                     
                 }
@@ -104,7 +137,8 @@ struct SettingsView: View {
             })
             )
         }//: NavigationView
-        
+        .accentColor(self.themes[self.theme.themeSettings].themeColor)
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 //MARK: PREVIEW

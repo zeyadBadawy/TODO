@@ -27,6 +27,11 @@
 		71E649F9282FC13F00F0A7B6 /* Blue Light.png in Resources */ = {isa = PBXBuildFile; fileRef = 71E649F0282FC13F00F0A7B6 /* Blue Light.png */; };
 		71E649FA282FC13F00F0A7B6 /* Green.png in Resources */ = {isa = PBXBuildFile; fileRef = 71E649F1282FC13F00F0A7B6 /* Green.png */; };
 		71E649FB282FC13F00F0A7B6 /* Blue Dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 71E649F2282FC13F00F0A7B6 /* Blue Dark.png */; };
+		71E64A002830372400F0A7B6 /* ThemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E649FF2830372400F0A7B6 /* ThemeModel.swift */; };
+		71E64A032830377D00F0A7B6 /* ThemeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E64A022830377D00F0A7B6 /* ThemeData.swift */; };
+		71E64A05283037DD00F0A7B6 /* ThemeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E64A04283037DD00F0A7B6 /* ThemeSettings.swift */; };
+		71E64A0728304B6100F0A7B6 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71E64A0628304B6100F0A7B6 /* Launch Screen.storyboard */; };
+		71E64A092830545C00F0A7B6 /* EditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E64A082830545C00F0A7B6 /* EditButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +57,11 @@
 		71E649F0282FC13F00F0A7B6 /* Blue Light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blue Light.png"; sourceTree = "<group>"; };
 		71E649F1282FC13F00F0A7B6 /* Green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Green.png; sourceTree = "<group>"; };
 		71E649F2282FC13F00F0A7B6 /* Blue Dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blue Dark.png"; sourceTree = "<group>"; };
+		71E649FF2830372400F0A7B6 /* ThemeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModel.swift; sourceTree = "<group>"; };
+		71E64A022830377D00F0A7B6 /* ThemeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeData.swift; sourceTree = "<group>"; };
+		71E64A04283037DD00F0A7B6 /* ThemeSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSettings.swift; sourceTree = "<group>"; };
+		71E64A0628304B6100F0A7B6 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		71E64A082830545C00F0A7B6 /* EditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +84,7 @@
 				71E649E3282FB24E00F0A7B6 /* SettingsView.swift */,
 				71E649E5282FB47500F0A7B6 /* FormRowStaticView.swift */,
 				71E649E7282FB79100F0A7B6 /* FormRowLinkView.swift */,
+				71E64A082830545C00F0A7B6 /* EditButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -99,6 +110,7 @@
 		71D555BB282E76BF0064E4B8 = {
 			isa = PBXGroup;
 			children = (
+				71E64A0628304B6100F0A7B6 /* Launch Screen.storyboard */,
 				71D555C6282E76BF0064E4B8 /* TODO */,
 				71D555C5282E76BF0064E4B8 /* Products */,
 			);
@@ -115,6 +127,7 @@
 		71D555C6282E76BF0064E4B8 /* TODO */ = {
 			isa = PBXGroup;
 			children = (
+				71E649FE2830371200F0A7B6 /* Themes */,
 				71E649E9282FC13F00F0A7B6 /* Icons */,
 				7117C4F1282E7AA5008EA5DA /* View */,
 				7117C4F4282E7AFC008EA5DA /* Resources */,
@@ -147,6 +160,16 @@
 				71E649F2282FC13F00F0A7B6 /* Blue Dark.png */,
 			);
 			path = Icons;
+			sourceTree = "<group>";
+		};
+		71E649FE2830371200F0A7B6 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				71E64A022830377D00F0A7B6 /* ThemeData.swift */,
+				71E649FF2830372400F0A7B6 /* ThemeModel.swift */,
+				71E64A04283037DD00F0A7B6 /* ThemeSettings.swift */,
+			);
+			path = Themes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +236,7 @@
 				71E649F7282FC13F00F0A7B6 /* Blue.png in Resources */,
 				71E649F8282FC13F00F0A7B6 /* Green Light.png in Resources */,
 				71D555CF282E76C40064E4B8 /* Preview Assets.xcassets in Resources */,
+				71E64A0728304B6100F0A7B6 /* Launch Screen.storyboard in Resources */,
 				71E649F6282FC13F00F0A7B6 /* Pink.png in Resources */,
 				71E649F9282FC13F00F0A7B6 /* Blue Light.png in Resources */,
 				71D555CC282E76C40064E4B8 /* Assets.xcassets in Resources */,
@@ -231,10 +255,14 @@
 				71E649E4282FB24E00F0A7B6 /* SettingsView.swift in Sources */,
 				71E649E6282FB47500F0A7B6 /* FormRowStaticView.swift in Sources */,
 				71E649E8282FB79100F0A7B6 /* FormRowLinkView.swift in Sources */,
+				71E64A032830377D00F0A7B6 /* ThemeData.swift in Sources */,
 				71D555CA282E76BF0064E4B8 /* ContentView.swift in Sources */,
+				71E64A092830545C00F0A7B6 /* EditButton.swift in Sources */,
 				7117C4F3282E7AC6008EA5DA /* AddTodoView.swift in Sources */,
+				71E64A05283037DD00F0A7B6 /* ThemeSettings.swift in Sources */,
 				7117C4F7282EFD3D008EA5DA /* EmptyListView.swift in Sources */,
 				71D555DC282E772C0064E4B8 /* AppDelegate.swift in Sources */,
+				71E64A002830372400F0A7B6 /* ThemeModel.swift in Sources */,
 				71D555D4282E76C40064E4B8 /* TODO.xcdatamodeld in Sources */,
 				71D555DE282E774B0064E4B8 /* SceneDelegate.swift in Sources */,
 			);
@@ -370,6 +398,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TODO/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
@@ -399,6 +428,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TODO/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;

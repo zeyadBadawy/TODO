@@ -32,8 +32,12 @@ struct AddTodoView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) private var viewContext
-    
+        
     let priorities:[Priority] = [.Low , .Normal , .High]
+    
+    //MARK: Theme
+    var themes:[Theme] = themeData
+    @ObservedObject var theme = ThemeSettings.shared
     
     
     //MARK: BODY
@@ -51,10 +55,12 @@ struct AddTodoView: View {
                     Picker("Priority", selection: $priority) {
                         ForEach(priorities , id: \.self){
                             Text($0.description)
+                            
                         }
                     }//: Picker
                     .pickerStyle(.segmented)
                     .padding(.vertical)
+                    
                     //MARK: Save Button
                     Button {
                         let todo = Todo(context: viewContext)
@@ -72,7 +78,7 @@ struct AddTodoView: View {
                             .font(.system(size: 24, weight: .bold, design: .default))
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(Color.blue)
+                            .background(self.themes[self.theme.themeSettings].themeColor)
                             .foregroundColor(.white)
                             .cornerRadius(9)
                             
@@ -94,6 +100,8 @@ struct AddTodoView: View {
                 Image(systemName: "xmark")
             }))
         }//: NavigationView
+        .accentColor(self.themes[self.theme.themeSettings].themeColor)
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 //MARK: PREVIEW
